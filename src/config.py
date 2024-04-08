@@ -41,8 +41,6 @@ if not ALLOWED_TELEGRAM_USER_IDS:
     logging.error("The ALLOWED_TELEGRAM_USER_IDS environment variable is empty.")
     exit(1)
 
-# Check if the environment variables are set;
-
 try:
     COOKIES_LOCATION = os.getenv("COOKIES_LOCATION")
     logging.info(f"COOKIES_LOCATION: {COOKIES_LOCATION}")

@@ -12,7 +12,6 @@ import logging,os,asyncio,re
 # Configure the logging;
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
-
 # Start message handler;
 async def handleStartMessage(update, context):
     userId = update.message.from_user.id
