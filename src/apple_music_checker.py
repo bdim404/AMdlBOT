@@ -68,10 +68,18 @@ class AppleMusicChecker:
         # connect to the database.
         sql_session = get_session()
 
-        # get the id.
-        query = urlparse(url).query
-        params = parse_qs(query)
-        id = params['i'][0] if 'i' in params else None
+        # Parse the URL
+        parsed_url = urlparse(url)
+
+        if '/song/' in parsed_url.path:
+            # If the URL is a song URL, get the ID from the path
+            path_parts = parsed_url.path.split('/')
+            id = path_parts[-1] if len(path_parts) > 1 else None
+        else:
+            # If the URL is not a song URL, get the ID from the query parameters
+            params = parse_qs(parsed_url.query)
+            id = params['i'][0] if 'i' in params else None
+
         logging.info(f"ID: {id}")
         not_found_song = []
         media_group = []
