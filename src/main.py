@@ -16,9 +16,9 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(level
 async def handleStartMessage(update, context):
     userId = update.message.from_user.id
     logging.info(f"User {userId} started the bot.")
-    if userId in ADMIN_USER_IDS:
+    if '-' not in ADMIN_USER_IDS and (userId in ADMIN_USER_IDS):
         await update.message.reply_text("Hey boss, I'm ready to serve you :)")
-    elif userId in ALLOWED_TELEGRAM_USER_IDS:
+    elif '*' in ALLOWED_TELEGRAM_USER_IDS or userId in ALLOWED_TELEGRAM_USER_IDS:
         await update.message.reply_text("Hello! I'm apple music download bot,send me the link of the song you want to download.")
     else:
         await update.message.reply_text("Sorry, you are not allowed to use this bot, please contact admin to get the permission.")
@@ -29,7 +29,7 @@ async def handleRequest(update: Update, context):
     userId = update.message.from_user.id
     logging.info(f"User {userId} sent a message.")
     if update.message.chat.type == "private":
-        if userId not in ADMIN_USER_IDS and userId not in ALLOWED_TELEGRAM_USER_IDS:
+        if '-' not in ADMIN_USER_IDS and '*' not in ALLOWED_TELEGRAM_USER_IDS and userId not in ADMIN_USER_IDS and userId not in ALLOWED_TELEGRAM_USER_IDS:
             await update.message.reply_text("Sorry, you are not allowed to use this bot, please contact admin to get the permission.")
             return
 

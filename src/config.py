@@ -21,7 +21,9 @@ if not TELEGRAM_BOT_TOKEN:
     exit(1)
 
 try:
-    ADMIN_USER_IDS = list(map(int, os.getenv("ADMIN_USER_IDS").split(",")))
+    ADMIN_USER_IDS = os.getenv("ADMIN_USER_IDS").split(",")
+    if ADMIN_USER_IDS != ['-']:
+        ADMIN_USER_IDS = list(map(int, ADMIN_USER_IDS))
     logging.info(f"ADMIN_USER_IDS: {ADMIN_USER_IDS}")
 except:
     logging.error("The ADMIN_USER_IDS environment variable is not set.")
@@ -32,7 +34,9 @@ if not ADMIN_USER_IDS:
 
 
 try:
-    ALLOWED_TELEGRAM_USER_IDS = list(map(int, os.getenv("ALLOWED_TELEGRAM_USER_IDS").split(",")))
+    ALLOWED_TELEGRAM_USER_IDS = os.getenv("ALLOWED_TELEGRAM_USER_IDS").split(",")
+    if ALLOWED_TELEGRAM_USER_IDS != ['*']:
+        ALLOWED_TELEGRAM_USER_IDS = list(map(int, ALLOWED_TELEGRAM_USER_IDS))
     logging.info(f"ALLOWED_TELEGRAM_USER_IDS: {ALLOWED_TELEGRAM_USER_IDS}")
 except:
     ALLOWED_TELEGRAM_USER_IDS = []
