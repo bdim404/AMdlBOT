@@ -51,6 +51,9 @@ Before proceeding, ensure that you have [FFmpeg](https://ffmpeg.org/download.htm
 - Ensure that your Telegram bot token and the files `cookies.txt` and `device.wvd` are valid and up-to-date for the bot to function correctly.
 - Check your internet connection before running the bot to ensure smooth access to GitHub and the FFmpeg website.
 
+## Thanks
+ Thanks [gamdl](https://github.com/glomatico/gamdl)
+
 ## Donate
 
 If you like the bot, you can support the developer!
