@@ -154,4 +154,4 @@ cython_debug/
 
 cookies.txt
 device.wvd
-datebase.db
+database.db
