@@ -21,7 +21,7 @@ Before proceeding, ensure that you have [FFmpeg](https://ffmpeg.org/download.htm
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/bdim404/AMdlBOT.git
+   git clone https://github.com/bdim404/music-download-telegram-bot.git
    ```
 
 2. **Create a .env File**:
