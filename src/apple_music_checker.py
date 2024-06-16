@@ -558,7 +558,7 @@ class AppleMusicChecker:
                     logging.error(f"An error occurred while sending the song", exc_info=True)
                     time.sleep(5)
                     continue
-
+        media_group.clear()
         logging.info(f"File ID dict: {file_id_dict}")
         return file_id_dict
 
